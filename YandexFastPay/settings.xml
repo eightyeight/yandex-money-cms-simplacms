@@ -5,7 +5,7 @@
 	</name>
 	<settings>
 		<variable>yandex_fast_pay_id</variable>
-		<name>Идентификатор платежки</name>
+		<name>ID формы</name>
 	</settings>
 	<settings>
 		<variable>yandex_fast_pay_narrative</variable>
