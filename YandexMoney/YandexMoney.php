@@ -45,20 +45,19 @@ class YandexMoney extends Simpla
             unset($purshase);
 
             $disc = number_format($price / $sum, 2, '.', '');
-            $withShipping = false;
+            
             foreach ($purchases as $purchase) {
                 $itemPrice = $purchase->price * $disc;
                 $receipt->addItem($purchase->product_name, $itemPrice, $purchase->amount, $id_tax);
             }
 
             if ($order->delivery_id && $order->delivery_price > 0) {
-                $withShipping = true;
                 $deliveryPrice = $order->delivery_price * $disc;
                 $delivery = $this->delivery->get_delivery($order->delivery_id);
                 $receipt->addShipping($delivery->name, $deliveryPrice, $id_tax);
             }
 
-            $ymMerchantReceipt = $receipt->normalize($price, $withShipping)->getJson();
+            $ymMerchantReceipt = $receipt->normalize($price)->getJson();
         }
 
 
