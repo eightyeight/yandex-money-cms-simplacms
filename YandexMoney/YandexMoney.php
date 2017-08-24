@@ -1,6 +1,6 @@
 <?php
 /**
- * Version: 1.2.0.2
+ * Version: 1.2.1
  * License: Любое использование Вами программы означает полное и безоговорочное принятие Вами условий лицензионного договора, размещенного по адресу https://money.yandex.ru/doc.xml?id=527132 (далее – «Лицензионный договор»). Если Вы не принимаете условия Лицензионного договора в полном объёме, Вы не имеете права использовать программу в каких-либо целях.
  */
 require_once('api/Simpla.php');
@@ -60,7 +60,6 @@ class YandexMoney extends Simpla
 
             $ymMerchantReceipt = $receipt->normalize($price, $withShipping)->getJson();
         }
-
 
 
         $button = '<form method="POST" action="https://' . $payment_url . 'money.yandex.ru/eshop.xml">
